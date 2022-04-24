@@ -1,3 +1,10 @@
 
 trigger:
-	- feature
+	- main
+
+- name: "Set flag from PR"
+  env:
+    PR_VAR: ${{ contains(github.event.pull_request.body, '[pr var]') }}
+  run: |
+  echo "flag=${PR_VAR}" >> $GITHUB_ENV
+  echo "set flag to ${PR_VAR}"
