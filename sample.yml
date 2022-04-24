@@ -2,9 +2,9 @@
 trigger:
 	- main
 
-- name: "Set flag from PR"
+- name: "Set flag for APP VERSION"
   env:
-    PR_VAR: ${{ contains(github.event.pull_request.body, '[pr var]') }}
+    APP_Ver: ${{ contains(github.event.pull_request.body, '[APP Ver]') }}
   run: |
-  echo "flag=${PR_VAR}" >> $GITHUB_ENV
-  echo "set flag to ${PR_VAR}"
+  echo "flag=${APP_Ver}" >> $GITHUB_ENV
+  echo "set flag to ${APP_Ver}"
